@@ -1,29 +1,37 @@
+
 document.getElementById('case-plus').addEventListener('click', function(){
-    updateCaseNumber(true);
-
+    updateProduct('case',59, true);
 });
-
 document.getElementById('case-minus').addEventListener('click', function(){
-    updateCaseNumber(false);
-
+    updateProduct('case',59,false);
 });
+
+// Phone Functions
+
+document.getElementById('phone-plus').addEventListener('click', function(){
+    updateProduct('phone',1219,true);
+});
+document.getElementById('phone-minus').addEventListener('click', function(){
+    updateProduct('phone',1219,false);
+});
+
+
 
     /* Simple functions to reduce Code */
 
-function updateCaseNumber(yes){
-    const caseInput= document.getElementById('case-number');
-    let  caseNumber  = caseInput.value ;
+function updateProduct(product, price, yes){
+    const ProductInput= document.getElementById( product +'-number');
+    let  ProductNumber  = ProductInput.value ;
 
     if (yes){
-        caseInput.value = parseInt(caseNumber) +1;
+        ProductInput.value = parseInt(ProductNumber) +1;
     }
-    else if (caseNumber > 0) {
-        caseInput.value = parseInt(caseNumber) - 1;
+    else if (ProductNumber > 0) {
+        ProductInput.value = parseInt(ProductNumber) - 1;
     }
-    caseNumber  = caseInput.value ;
+    ProductNumber  = ProductInput.value ;
 
-    const CaseAmount = document.getElementById('case-amount');
-        CaseAmount.innerText = caseNumber * 59;
+    const ProductAmount = document.getElementById(product +'-amount');
+        ProductAmount.innerText = ProductNumber * price;
         
-
 }
