@@ -33,5 +33,28 @@ function updateProduct(product, price, yes){
 
     const ProductAmount = document.getElementById(product +'-amount');
         ProductAmount.innerText = ProductNumber * price;
+
+        calculateTotal();
         
+}
+
+function getValueFinal(product){
+const productInput  = document.getElementById( product +'-number');
+const   productNumber  = parseInt(productInput.value);
+return productNumber ;
+
+} 
+
+function calculateTotal( ){
+
+
+    const phoneTotal = getValueFinal('phone') * 1219
+    const caseTotal = getValueFinal('case') * 59
+    const SubTotal = phoneTotal + caseTotal;
+    const tax = SubTotal / 10;
+    
+    document.getElementById('sub-total').innerText = SubTotal;
+    document.getElementById('tax-amount').innerText = SubTotal/10;
+    document.getElementById('total-price').innerText = SubTotal + tax;
+
 }
